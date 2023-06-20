@@ -1,3 +1,89 @@
+:root {
+    --branding-color: rgb(128, 33, 131);
+    --secondary-color: rgba(247, 231, 248, 0.4);
+    --font-color: #555353;
+}
+.App {
+    max-width: 600px;
+    margin: 30px auto;
+}
+.App footer {
+    font-size: 10px;
+    margin: 10px 0;
+    padding-left: 10px;
+}
+.App a {
+    color: var(--branding-color) !important;
+    text-decoration: none;
+}
+
 .weather {
-    border: 1px solid rgb(102, 13, 13);
+    border: 1px solid var(--branding-color);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--font-color);
+    padding: 16px;
+}
+.weather form {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.form-control {
+    border: 1px solid var(--branding-color) !important;
+}
+.btn-primary {
+    color: rgb(238, 223, 232);
+    background-color: var(--branding-color) !important;
+    border: 1px solid var(--branding-color) !important;
+}
+.weather h1 {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 35px;
+    margin: 20px 0 0 0;
+}
+.weather ul {
+    margin: 0;
+    padding: 0;
+}
+.weather li {
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 16px;
+    text-align: left;
+    list-style: none;
+}
+.weather .date {
+    color: var(--branding-color);
+}
+.weather .humidity {
+    color: var(--branding-color);
+}
+.weather .wind {
+    color: var(--branding-color);
+}
+.weather img {
+    vertical-align: top;
+    line-height: 65px;
+    margin-right: 10px;
+    width: 65px;
+    height: 65px;
+}
+.weather .temperature {
+    color: var(--font-color);
+    font-size: 65px;
+    font-weight: bold;
+    line-height: 70px;
+    margin-right: 5px;
+}
+.weather a {
+    color: var(--branding-color) !important;
+    text-decoration: none;
+}
+.weather .unit {
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    top: -32px;
 }
