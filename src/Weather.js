@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
-export default function weather(props) {
+export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ redy: false });
     function handleResponse(response) {
         console.log(response.data);
