@@ -54,7 +54,7 @@
     text-align: left;
     list-style: none;
 }
-.weather .date {
+.formattedDate .date {
     color: var(--branding-color);
 }
 .weather .humidity {
