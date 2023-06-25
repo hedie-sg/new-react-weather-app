@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FormattedDate from './FormattedDate';
+import WeatherIcon from './WeatherIcon';
 import axios from 'axios';
 import './App.css';
 
@@ -15,7 +16,7 @@ export default function Weather(props) {
             description: response.data.condition.description,
             humidity: Math.round(response.data.temperature.humidity),
             wind: Math.round(response.data.wind.speed),
-            icon: response.data.condition.icon_url,
+            icon: response.data.condition.icon,
         });
     }
     function search() {
@@ -81,11 +82,7 @@ export default function Weather(props) {
                         </ul>
                     </div>
                     <div className="col-6">
-                        <img
-                            src={weatherData.icon}
-                            alt=" Mostly cloudy"
-                            className="icon"
-                        />
+                        <WeatherIcon code={weatherData.icon} />
                         <span className="temperature">
                             {weatherData.temperature}
                         </span>

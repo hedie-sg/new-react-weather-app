@@ -63,7 +63,7 @@
 .weather .wind {
     color: var(--branding-color);
 }
-.weather img {
+.weather canvas {
     vertical-align: top;
     line-height: 65px;
     margin-right: 10px;
