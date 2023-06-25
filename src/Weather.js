@@ -55,7 +55,6 @@ export default function Weather(props) {
                         </div>
                     </div>
                 </form>
-
                 <h1 className="city">{weatherData.city}</h1>
                 <div className="row mt-3 mb-3">
                     <div className="col-md-6">
@@ -85,7 +84,6 @@ export default function Weather(props) {
                     <div className="col-md-6">
                         <div className="d-flex justify-content-end">
                             <WeatherIcon code={weatherData.icon} />
-
                             <WeatherTemp celsius={weatherData.temperature} />
                         </div>
                     </div>

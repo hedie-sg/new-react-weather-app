@@ -3,7 +3,6 @@ import './App.css';
 
 export default function WeatherTemp(props) {
     const [unit, setUnit] = useState('celsius');
-
     function convertFahrenheit(event) {
         event.preventDefault();
         setUnit('fahrenheit');
@@ -12,7 +11,6 @@ export default function WeatherTemp(props) {
         event.preventDefault();
         setUnit('celsius');
     }
-
     if (unit === 'celsius') {
         return (
             <span className="WeatherTemp">
