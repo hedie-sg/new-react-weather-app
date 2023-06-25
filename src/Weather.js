@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormattedDate from './FormattedDate';
 import WeatherIcon from './WeatherIcon';
+import WeatherTemp from './WeatherTemp';
 import axios from 'axios';
 import './App.css';
 
@@ -37,7 +38,7 @@ export default function Weather(props) {
             <div className="weather">
                 <form onSubmit={handleSubmit}>
                     <div className="row">
-                        <div className="col-9">
+                        <div className="col-md-9">
                             <input
                                 type="search"
                                 placeholder="Enter a city..."
@@ -45,7 +46,7 @@ export default function Weather(props) {
                                 onChange={handleCityChange}
                             />
                         </div>
-                        <div className="col-3">
+                        <div className="col-md-3">
                             <input
                                 type="submit"
                                 value="Search"
@@ -57,7 +58,7 @@ export default function Weather(props) {
 
                 <h1 className="city">{weatherData.city}</h1>
                 <div className="row mt-3 mb-3">
-                    <div className="col-6">
+                    <div className="col-md-6">
                         <ul>
                             <li className="text-capitalize">
                                 <FormattedDate date={weatherData.date} />
@@ -81,14 +82,12 @@ export default function Weather(props) {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-6">
-                        <WeatherIcon code={weatherData.icon} />
-                        <span className="temperature">
-                            {weatherData.temperature}
-                        </span>
-                        <span className="unit">
-                            <a href="/">°C</a> | <a href="/">°F</a>
-                        </span>
+                    <div className="col-md-6">
+                        <div className="d-flex justify-content-end">
+                            <WeatherIcon code={weatherData.icon} />
+
+                            <WeatherTemp celsius={weatherData.temperature} />
+                        </div>
                     </div>
                 </div>
             </div>

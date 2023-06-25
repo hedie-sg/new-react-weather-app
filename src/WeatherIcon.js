@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
+import './App.css';
 
 export default function WeatherIcon(props) {
     const codeMapping = {
@@ -13,8 +14,10 @@ export default function WeatherIcon(props) {
         'broken-clouds-night': 'CLOUDY',
         'rain-day': 'RAIN',
         'rain-night': 'RAIN',
-        'thunderstorm-day': 'RAIN',
-        'thunderstorm-night': 'RAIN',
+        'shower-rain-day': 'SLEET',
+        'shower-rain-night': 'SLEET',
+        'thunderstorm-day': 'WIND',
+        'thunderstorm-night': 'WIND',
         'snow-day': 'SNOW',
         'snow-night': 'SNOW',
         'mist-day': 'FOG',

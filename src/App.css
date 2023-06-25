@@ -66,16 +66,16 @@
 .weather canvas {
     vertical-align: top;
     line-height: 65px;
-    margin-right: 10px;
+
     width: 65px;
     height: 65px;
+    display: inline-block;
 }
 .weather .temperature {
     color: var(--font-color);
     font-size: 65px;
     font-weight: bold;
     line-height: 70px;
-    margin-right: 5px;
 }
 .weather a {
     color: var(--branding-color) !important;
