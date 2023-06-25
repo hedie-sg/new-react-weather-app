@@ -5,6 +5,7 @@ import './App.css';
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ redy: false });
+    const [city, setCity] = useState(props.defaultCity);
     function handleResponse(response) {
         setWeatherData({
             ready: true,
@@ -17,16 +18,30 @@ export default function Weather(props) {
             icon: response.data.condition.icon_url,
         });
     }
+    function search() {
+        let unit = 'metric';
+        const apiKey = '2o0f65b4a41b4138505bc7t3f2fa0460';
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${unit}`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+    function handleSubmit(event) {
+        event.preventDefault();
+        search();
+    }
+    function handleCityChange(event) {
+        setCity(event.target.value);
+    }
     if (weatherData.ready) {
         return (
             <div className="weather">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-9">
                             <input
                                 type="search"
                                 placeholder="Enter a city..."
                                 className="form-control"
+                                onChange={handleCityChange}
                             />
                         </div>
                         <div className="col-3">
@@ -38,6 +53,7 @@ export default function Weather(props) {
                         </div>
                     </div>
                 </form>
+
                 <h1 className="city">{weatherData.city}</h1>
                 <div className="row mt-3 mb-3">
                     <div className="col-6">
@@ -81,10 +97,7 @@ export default function Weather(props) {
             </div>
         );
     } else {
-        let unit = 'metric';
-        const apiKey = '2o0f65b4a41b4138505bc7t3f2fa0460';
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=${unit}`;
-        axios.get(apiUrl).then(handleResponse);
-        return 'loadin..';
+        search();
+        return 'loading..';
     }
 }
