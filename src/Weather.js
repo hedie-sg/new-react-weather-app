@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormattedDate from './FormattedDate';
 import WeatherIcon from './WeatherIcon';
 import WeatherTemp from './WeatherTemp';
+import WeatherForcast from './WeatherForcast';
 import axios from 'axios';
 import './App.css';
 
@@ -83,11 +84,12 @@ export default function Weather(props) {
                     </div>
                     <div className="col-md-6">
                         <div className="d-flex justify-content-end">
-                            <WeatherIcon code={weatherData.icon} />
+                            <WeatherIcon code={weatherData.icon} size={65} />
                             <WeatherTemp celsius={weatherData.temperature} />
                         </div>
                     </div>
                 </div>
+                <WeatherForcast city={weatherData.city} />
             </div>
         );
     } else {

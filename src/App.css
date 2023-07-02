@@ -66,8 +66,6 @@
 .weather canvas {
     vertical-align: top;
     line-height: 65px;
-    width: 65px;
-    height: 65px;
     display: inline-block;
 }
 .weather .temperature {
@@ -85,4 +83,11 @@
     font-weight: 400;
     position: relative;
     top: -32px;
+}
+.WeatherForcast {
+    text-align: center;
+}
+.forcast-temp-min {
+    opacity: 0.6;
+    margin-left: 5px;
 }
