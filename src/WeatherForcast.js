@@ -21,6 +21,7 @@ export default function WeatherForcast(props) {
     }
 
     if (loaded) {
+        console.log(forcast);
         return (
             <div className="WeatherForcast">
                 <div className="row">
