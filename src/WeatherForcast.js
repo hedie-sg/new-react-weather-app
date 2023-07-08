@@ -11,8 +11,8 @@ export default function WeatherForcast(props) {
         setForcast(response.data.daily);
         setLoaded(true);
     }
-    function day() {
-        let date = new Date(forcast[0].time * 1000);
+    function day(forcast) {
+        let date = new Date(forcast.time * 1000);
         let day = date.getDay();
 
         let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -21,25 +21,36 @@ export default function WeatherForcast(props) {
     }
 
     if (loaded) {
-        console.log(forcast);
         return (
             <div className="WeatherForcast">
                 <div className="row">
-                    <div className="col">
-                        <div className="forcast-day">{day()}</div>
-                        <WeatherIcon
-                            code={forcast[0].condition.icon}
-                            size={33}
-                        />
-                        <div className="forcast-temp">
-                            <span className="forcast-temp-max">
-                                {Math.round(forcast[0].temperature.maximum)}°
-                            </span>
-                            <span className="forcast-temp-min">
-                                {Math.round(forcast[0].temperature.minimum)}°
-                            </span>
-                        </div>
-                    </div>
+                    {forcast.slice(0, 6).map((dailyForecast, index) => {
+                        return (
+                            <div className="col" key={index}>
+                                <div className="forcast-day">
+                                    {day(dailyForecast)}
+                                </div>
+                                <WeatherIcon
+                                    code={dailyForecast.condition.icon}
+                                    size={33}
+                                />
+                                <div className="forcast-temp">
+                                    <span className="forcast-temp-max">
+                                        {Math.round(
+                                            dailyForecast.temperature.maximum
+                                        )}
+                                        °
+                                    </span>
+                                    <span className="forcast-temp-min">
+                                        {Math.round(
+                                            dailyForecast.temperature.minimum
+                                        )}
+                                        °
+                                    </span>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         );
